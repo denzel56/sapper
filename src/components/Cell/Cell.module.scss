@@ -1,0 +1,22 @@
+.root {
+  width: 16px;
+  height: 16px;
+  background: url('../../assets/minesweeper-sprites_9TPZzv3.png') no-repeat;
+  background-position-y: -52px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.open {
+  background-position-x: -18px;
+}
+
+.flag {
+  background-position-x: -34px;
+}
+
+.question {
+  background-position-x: -51px;
+}
