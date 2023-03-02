@@ -5,10 +5,7 @@ import { gameStateChange, gameStateChangeSelector } from "../../store/gameStateS
 
 import s from "./Cell.module.scss"
 
-const Cell = ({ open, x, y, mine }) => {
-  const [flag, setFlag] = useState(false);
-  const [question, setQuestion] = useState(false);
-
+const Cell = ({ open, x, y, mine, flag, question }) => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
@@ -23,17 +20,29 @@ const Cell = ({ open, x, y, mine }) => {
     e.preventDefault();
 
     if (flag) {
-      setFlag(false);
-      setQuestion(true);
+      dispatch(gameStateChange({
+        x,
+        y,
+        flag: false,
+        question: true
+      }));
       return
     }
 
     if (question) {
-      setQuestion(false);
+      dispatch(gameStateChange({
+        x,
+        y,
+        question: false
+      }));
       return
     }
 
-    setFlag(true);
+    dispatch(gameStateChange({
+      x,
+      y,
+      flag: true,
+    }));
   }
 
   return (

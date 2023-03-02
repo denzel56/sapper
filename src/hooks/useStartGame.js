@@ -9,7 +9,9 @@ function useStartGame() {
         open: false,
         x: j,
         y: i,
-        mine: false
+        mine: false,
+        flag: false,
+        question: false
       })
       id++;
     }
