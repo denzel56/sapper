@@ -3,17 +3,65 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { gameStateChange, gameStateChangeSelector } from "../../store/gameStateSlice";
 
-import s from "./Cell.module.scss"
+import s from "./Cell.module.scss";
 
-const Cell = ({ open, x, y, mine, flag, question }) => {
+const numbers = {
+  0: 'open',
+  1: 'one',
+  2: 'two',
+  3: 'three',
+  4: 'four',
+  5: 'five',
+  6: 'six',
+  7: 'seven',
+  8: 'eight',
+}
+
+const Cell = ({ bombNear, x, y, mine, flag, question }) => {
   const dispatch = useDispatch();
+  const gameArea = useSelector(gameStateChangeSelector);
+  const [openBomb, setOpenBomb] = useState(false);
+
 
   const handleClick = () => {
-    dispatch(gameStateChange({
-      open: true,
-      x,
-      y,
-    }));
+    let countBomb = 0;
+
+    if (mine) {
+      setOpenBomb(true);
+    }
+
+    if (gameArea[y - 1][x].mine) {
+      countBomb += 1;
+    }
+    if (gameArea[y - 1][x + 1].mine) {
+      countBomb += 1;
+    }
+    if (gameArea[y][x + 1].mine) {
+      countBomb += 1;
+    }
+    if (gameArea[y + 1][x + 1].mine) {
+      countBomb += 1;
+    }
+    if (gameArea[y + 1][x].mine) {
+      countBomb += 1;
+    }
+    if (gameArea[y + 1][x - 1].mine) {
+      countBomb += 1;
+    }
+    if (gameArea[y][x + 1].mine) {
+      countBomb += 1;
+    }
+    if (gameArea[y - 1][x - 1].mine) {
+      countBomb += 1;
+    }
+
+    if (countBomb > 0) {
+      dispatch(gameStateChange({
+        bombNear: countBomb,
+        x,
+        y,
+      }));
+    }
   }
 
   const handleRightClick = (e) => {
@@ -49,7 +97,8 @@ const Cell = ({ open, x, y, mine, flag, question }) => {
     <>
       <div
         className={cn(s.root, {
-          [s.open]: open,
+          // [`s.${numbers[gameArea[y][x].bombNear]}`]: true,
+          [s.openBomb]: openBomb,
           [s.flag]: flag,
           [s.question]: question
         })}

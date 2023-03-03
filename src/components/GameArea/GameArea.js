@@ -6,6 +6,7 @@ import Cell from "../Cell/Cell";
 
 import s from "./GameArea.module.scss";
 
+
 const GameArea = () => {
   const gameState = useSelector(gameStateChangeSelector);
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ const GameArea = () => {
     dispatch(gameStart(start));
   }, [dispatch])
 
+
   return (
     <>
       <div className={s.root}>
@@ -23,7 +25,7 @@ const GameArea = () => {
             return (
               <Cell
                 key={item.id}
-                open={item.open}
+                bombNear={item.bombNear}
                 x={item.x}
                 y={item.y}
                 mine={item.mine}
@@ -38,7 +40,7 @@ const GameArea = () => {
             return (
               <Cell
                 key={item.id}
-                open={item.open}
+                bombNear={item.bombNear}
                 x={item.x}
                 y={item.y}
                 mine={item.mine}
@@ -53,7 +55,7 @@ const GameArea = () => {
             return (
               <Cell
                 key={item.id}
-                open={item.open}
+                bombNear={item.bombNear}
                 x={item.x}
                 y={item.y}
                 mine={item.mine}
@@ -68,7 +70,7 @@ const GameArea = () => {
             return (
               <Cell
                 key={item.id}
-                open={item.open}
+                bombNear={item.bombNear}
                 x={item.x}
                 y={item.y}
                 mine={item.mine}
@@ -83,7 +85,7 @@ const GameArea = () => {
             return (
               <Cell
                 key={item.id}
-                open={item.open}
+                bombNear={item.bombNear}
                 x={item.x}
                 y={item.y}
                 mine={item.mine}
@@ -98,7 +100,7 @@ const GameArea = () => {
             return (
               <Cell
                 key={item.id}
-                open={item.open}
+                bombNear={item.bombNear}
                 x={item.x}
                 y={item.y}
                 mine={item.mine}
@@ -113,7 +115,7 @@ const GameArea = () => {
             return (
               <Cell
                 key={item.id}
-                open={item.open}
+                bombNear={item.bombNear}
                 x={item.x}
                 y={item.y}
                 mine={item.mine}
@@ -128,7 +130,7 @@ const GameArea = () => {
             return (
               <Cell
                 key={item.id}
-                open={item.open}
+                bombNear={item.bombNear}
                 x={item.x}
                 y={item.y}
                 mine={item.mine}
@@ -143,7 +145,7 @@ const GameArea = () => {
             return (
               <Cell
                 key={item.id}
-                open={item.open}
+                bombNear={item.bombNear}
                 x={item.x}
                 y={item.y}
                 mine={item.mine}
@@ -158,7 +160,7 @@ const GameArea = () => {
             return (
               <Cell
                 key={item.id}
-                open={item.open}
+                bombNear={item.bombNear}
                 x={item.x}
                 y={item.y}
                 mine={item.mine}
@@ -173,7 +175,7 @@ const GameArea = () => {
             return (
               <Cell
                 key={item.id}
-                open={item.open}
+                bombNear={item.bombNear}
                 x={item.x}
                 y={item.y}
                 mine={item.mine}
@@ -188,7 +190,7 @@ const GameArea = () => {
             return (
               <Cell
                 key={item.id}
-                open={item.open}
+                bombNear={item.bombNear}
                 x={item.x}
                 y={item.y}
                 mine={item.mine}
@@ -203,7 +205,7 @@ const GameArea = () => {
             return (
               <Cell
                 key={item.id}
-                open={item.open}
+                bombNear={item.bombNear}
                 x={item.x}
                 y={item.y}
                 mine={item.mine}
@@ -218,7 +220,7 @@ const GameArea = () => {
             return (
               <Cell
                 key={item.id}
-                open={item.open}
+                bombNear={item.bombNear}
                 x={item.x}
                 y={item.y}
                 mine={item.mine}
@@ -233,7 +235,7 @@ const GameArea = () => {
             return (
               <Cell
                 key={item.id}
-                open={item.open}
+                bombNear={item.bombNear}
                 x={item.x}
                 y={item.y}
                 mine={item.mine}
@@ -248,7 +250,7 @@ const GameArea = () => {
             return (
               <Cell
                 key={item.id}
-                open={item.open}
+                bombNear={item.bombNear}
                 x={item.x}
                 y={item.y}
                 mine={item.mine}
