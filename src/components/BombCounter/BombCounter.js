@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import cn from 'classnames';
 import { useSelector } from 'react-redux';
 import { mineCounterSelector } from '../../store/mineSlice';

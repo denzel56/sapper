@@ -16,7 +16,7 @@ const numbers = [
   'six',
   'seven',
   'eight'
-]
+];
 
 
 const Cell = ({ bombNear, x, y, mine, flag, question }) => {
@@ -25,25 +25,8 @@ const Cell = ({ bombNear, x, y, mine, flag, question }) => {
   const bombCount = useSelector(mineCounterSelector);
   const [openBomb, setOpenBomb] = useState(false);
 
-
-  const handleClick = () => {
+  const checkNearBomb = () => {
     let countBomb = 0;
-
-    if (!gameArea[y][x]) {
-      return
-    }
-
-    if (flag) {
-      return
-    }
-
-    if (gameArea[y][x] && openBomb) {
-      return
-    }
-
-    if (mine) {
-      setOpenBomb(true);
-    }
 
     if (gameArea[y - 1][x] && gameArea[y - 1][x].mine) {
       countBomb += 1;
@@ -75,6 +58,28 @@ const Cell = ({ bombNear, x, y, mine, flag, question }) => {
         x,
         y,
       }));
+  }
+
+
+  const handleClick = () => {
+
+    if (!gameArea[y][x]) {
+      return
+    }
+
+    if (flag) {
+      return
+    }
+
+    if (gameArea[y][x] && openBomb) {
+      return
+    }
+
+    if (mine) {
+      setOpenBomb(true);
+    }
+
+    checkNearBomb();
   }
 
   const handleRightClick = (e) => {
