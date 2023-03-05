@@ -22,7 +22,7 @@ function useStartGame() {
 
   for (let i = 0; i < 40; i++) {
     let x = getRandom(15);
-    let y = getRandom(15)
+    let y = getRandom(15);
     rows[y][x] = {
       ...rows[y][x],
       mine: true

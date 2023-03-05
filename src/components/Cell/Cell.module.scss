@@ -3,28 +3,11 @@
   height: 16px;
   background: url('../../assets/minesweeper-sprites_9TPZzv3.png') no-repeat;
   background-position: -1px -52px;
-    b
-
-  &:hover {
-    cursor: pointer;
-  }
 }
 
-.open {
+.zero {
   background-position-x: -18px;
 }
-
-.openBomb {
-  background-position-x: -103px;
-}
-.flag {
-  background-position-x: -34px;
-}
-
-.question {
-  background-position-x: -51px;
-}
-
 .one {
   background-position: -1px -68px;
 }
@@ -34,25 +17,37 @@
 }
 
 .three {
-  background-position: -44px -68px;
+  background-position: -35px -68px;
 }
 
 .four {
-  background-position: -60px -68px;
+  background-position: -51px -70px;
 }
 
 .five {
-  background-position: -76px -68px;
+  background-position: -67px -68px;
 }
 
 .six {
-  background-position: -92px -68px;
+  background-position: -85px -68px;
 }
 
 .seven {
-  background-position: -108px -68px;
+  background-position: -102px -68px;
 }
 
 .eight {
-  background-position: -68px -124px;
+  background-position: -118px -68px;
+}
+
+.openBomb {
+  background-position-x: -103px;
+}
+
+.flag {
+  background-position-x: -34px;
+}
+
+.question {
+  background-position-x: -51px;
 }
