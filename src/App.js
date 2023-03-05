@@ -1,5 +1,5 @@
 import GameArea from './components/GameArea/GameArea';
-import './App.css';
+import './App.scss';
 import GameHeader from './components/GameHader/GameHeader';
 
 

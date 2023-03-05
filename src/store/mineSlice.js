@@ -10,10 +10,13 @@ export const mineSlice = createSlice({
   reducers: {
     mineCounter: (state) => {
       state.mineSum = state.mineSum - 1;
+    },
+    mineCounterPlus: (state) => {
+      state.mineSum = state.mineSum + 1;
     }
   }
 });
 
-export const { mineCounter } = mineSlice.actions;
+export const { mineCounter, mineCounterPlus } = mineSlice.actions;
 export const mineCounterSelector = (state) => state.mine.mineSum;
 export default mineSlice.reducer;

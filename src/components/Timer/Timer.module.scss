@@ -1,0 +1,13 @@
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+
+  .timerCell {
+    width: 16px;
+    height: 24px;
+    background: url('../../assets/minesweeper-sprites_9TPZzv3.png') no-repeat;
+    background-position: -125px 0;
+  }
+}

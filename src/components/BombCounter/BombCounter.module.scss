@@ -5,9 +5,49 @@
   margin-bottom: 10px;
 
   .timerCell {
-    width: 16px;
+    width: 15px;
     height: 24px;
     background: url('../../assets/minesweeper-sprites_9TPZzv3.png') no-repeat;
     background-position: -125px 0;
   }
+.zero {
+  background-position: -125px 0;
+}
+
+.one {
+  background-position-x: 1px;
+}
+
+.two {
+  background-position-x: -12px;
+}
+
+.three {
+  background-position-x: -26px;
+}
+
+.four {
+  background-position-x: -40px;
+
+}
+
+.five {
+  background-position-x: -54px;
+}
+
+.six {
+  background-position-x: -68px;
+}
+
+.seven {
+  background-position-x: -82px;
+}
+
+.eight {
+  background-position-x: -96px;
+}
+
+.nine {
+  background-position-x: -110px;
+}
 }

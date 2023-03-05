@@ -1,7 +1,8 @@
 import cn from "classnames";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { gameStateChange, gameStateChangeSelector } from "../../store/gameStateSlice";
+import { mineCounter, mineCounterPlus, mineCounterSelector } from "../../store/mineSlice";
 
 import s from "./Cell.module.scss";
 
@@ -21,11 +22,16 @@ const numbers = [
 const Cell = ({ bombNear, x, y, mine, flag, question }) => {
   const dispatch = useDispatch();
   const gameArea = useSelector(gameStateChangeSelector);
+  const bombCount = useSelector(mineCounterSelector);
   const [openBomb, setOpenBomb] = useState(false);
 
 
   const handleClick = () => {
     let countBomb = 0;
+
+    if (!gameArea[y][x]) {
+      return
+    }
 
     if (flag) {
       return
@@ -69,37 +75,43 @@ const Cell = ({ bombNear, x, y, mine, flag, question }) => {
         x,
         y,
       }));
-
-    console.log(numbers[countBomb])
   }
 
   const handleRightClick = (e) => {
     e.preventDefault();
 
-    if (flag) {
+    if (gameArea[y][x].flag) {
       dispatch(gameStateChange({
         x,
         y,
         flag: false,
         question: true
-      }));
+      }))
+
+      dispatch(mineCounterPlus());
       return
     }
 
-    if (question) {
+    if (gameArea[y][x].question) {
       dispatch(gameStateChange({
         x,
         y,
+        flag: false,
         question: false
-      }));
+      }))
+
       return
     }
 
-    dispatch(gameStateChange({
-      x,
-      y,
-      flag: true,
-    }));
+    if (bombCount > 0) {
+      dispatch(gameStateChange({
+        x,
+        y,
+        flag: true
+      }))
+      dispatch(mineCounter());
+    }
+
   }
 
   return (
