@@ -24,9 +24,9 @@ const Cell = ({ bombNear, x, y, mine, flag, question }) => {
   const gameArea = useSelector(gameStateChangeSelector);
   const bombCount = useSelector(mineCounterSelector);
   const [openBomb, setOpenBomb] = useState(false);
+  let countBomb = 0;
 
   const checkNearBomb = () => {
-    let countBomb = 0;
 
     if (gameArea[y - 1][x] && gameArea[y - 1][x].mine) {
       countBomb += 1;
@@ -60,7 +60,6 @@ const Cell = ({ bombNear, x, y, mine, flag, question }) => {
       }));
   }
 
-
   const handleClick = () => {
 
     if (!gameArea[y][x]) {
@@ -68,10 +67,6 @@ const Cell = ({ bombNear, x, y, mine, flag, question }) => {
     }
 
     if (flag) {
-      return
-    }
-
-    if (gameArea[y][x] && openBomb) {
       return
     }
 
